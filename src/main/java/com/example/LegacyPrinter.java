@@ -1,12 +1,23 @@
 package com.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class LegacyPrinter {
+
+    private static final Logger log = LoggerFactory.getLogger(LegacyPrinter.class);
+
     public void printMessage(String message) {
-        System.out.println(message);
+        log.info(message);
     }
 
-    @Deprecated
+    /**
+     * @deprecated Utilisez plutôt {@link #printMessage(String)} 
+     * @since 1.0
+     * @forRemoval true
+     */
+    @Deprecated(since = "1.0", forRemoval = true)
     public void printOldMessage(String message) {
-        System.out.println("OLD: " + message);
+        log.info("OLD: {}", message);
     }
 }

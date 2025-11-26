@@ -2,33 +2,32 @@ package com.example;
 
 public class BadCode {
 
-    private int unusedVariable = 42; // variable jamais utilisée
+    // variable inutilisée supprimée
 
     public void process(int age, boolean isStudent, boolean isSenior, String day) {
-        // Méthode très longue + conditionnelle complexe
+        double price = calculatePrice(age, isStudent, isSenior, day);
+        System.out.println("Prix final : " + price + " €");
+    }
+
+    private double calculatePrice(int age, boolean isStudent, boolean isSenior, String day) {
         if (age < 18) {
-            if (isStudent) {
-                if (day.equals("weekend")) {
-                    System.out.println("Réduction enfant étudiant weekend");
-                } else {
-                    System.out.println("Réduction enfant étudiant");
-                }
-            } else {
-                if (day.equals("weekend")) {
-                    System.out.println("Réduction enfant weekend");
-                } else {
-                    System.out.println("Tarif enfant");
-                }
-            }
-        } else if (age > 65 || isSenior) {
-            if (day.equals("wednesday")) {
-                System.out.println("Tarif senior mercredi");
-            } else {
-                System.out.println("Tarif senior");
-            }
-        } else {
-            System.out.println("Tarif normal");
+            return isStudent ? getStudentChildPrice(day) : getChildPrice(day);
         }
-        // Fin de la méthode de 30+ lignes
+        if (age > 65 || isSenior) {
+            return getSeniorPrice(day);
+        }
+        return 10.0; // tarif normal
+    }
+
+    private double getStudentChildPrice(String day) {
+        return day.equals("weekend") ? 5.0 : 6.0;
+    }
+
+    private double getChildPrice(String day) {
+        return day.equals("weekend") ? 7.0 : 8.0;
+    }
+
+    private double getSeniorPrice(String day) {
+        return day.equals("wednesday") ? 4.0 : 6.0;
     }
 }

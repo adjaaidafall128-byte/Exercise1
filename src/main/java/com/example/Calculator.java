@@ -10,6 +10,7 @@ public class Calculator {
         return a - b;
     }
 
-    // Méthode multiply() → jamais utilisée → SUPPRIMÉE
-    // Méthode duplicateLogicAdd() → code dupliqué → SUPPRIMÉE
+    // La méthode multiply() était jamais utilisée → supprimée
+    // La méthode duplicateLogicAdd() était du code dupliqué → supprimée
+    // On garde uniquement ce qui est réellement appelé depuis Main
 }
