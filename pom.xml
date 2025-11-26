@@ -16,7 +16,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.projectKey>adjaaidafall128-byte_Exercise1</sonar.projectKey>
         <sonar.organization>adjaaidafall128-byte</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.host.url>https://so<!-- Logger SLF4J + Logback (remplace System.out) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.6</version>
+        </dependency>narcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
